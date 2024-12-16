@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Современный GPA Калькулятор с AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключение jsPDF для экспорта PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>GPA Calculator with AI</h1>
+            <p>  GPA с помощью нашего AI-ассистента!</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Секция Калькулятора GPA -->
+        <section class="calculator-section">
+            <h2>Выберите систему GPA</h2>
+            <div class="system-selector">
+                <label>
+                    <input type="radio" name="system" value="4" checked> 4.0 Система
+                </label>
+                <label>
+                    <input type="radio" name="system" value="5"> 5.0 Система
+                </label>
+                <label>
+                    <input type="radio" name="system" value="100"> 100% Система
+                </label>
+            </div>
+
+            <h2>Введите ваши курсы</h2>
+            <div class="subjects-container">
+                <div class="row header">
+                    <span>Название курса</span>
+                    <span>Оценка</span>
+                    <span>Кредиты</span>
+                    <span>Действие</span>
+                </div>
+                <div id="subjects"></div>
+                <div class="buttons-group">
+                    <button id="add-subject" class="button add-button">+ Добавить курс</button>
+                    <button id="use-template" class="button template-button">Использовать шаблон</button>
+                    <button id="save-template" class="button save-button">Сохранить шаблон</button>
+                    <button id="load-template" class="button load-button">Загрузить шаблон</button>
+                </div>
+            </div>
+
+            <button id="calculate-gpa" class="calculate-button">Рассчитать GPA</button>
+            <button id="export-pdf" class="button export-button">Экспорт в PDF</button>
+
+            <div class="gpa-indicator">
+                <svg class="circle-chart" viewBox="0 0 36 36">
+                    <path class="circle-bg"
+                          d="M18 2.0845
+                             a 15.9155 15.9155 0 0 1 0 31.831
+                             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <path class="circle"
+                          stroke-dasharray="0, 100"
+                          d="M18 2.0845
+                             a 15.9155 15.9155 0 0 1 0 31.831
+                             a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    <text x="18" y="20.35" class="percentage">0.00</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- AI Assistant Prompt Section -->
+            <!--- TODO: настроить связь с сервером чтобы AI Assistant работал -->
+            
+            <section class="prompt-section">
+                <h2>AI Assistant</h2>
+                <form id="chat-form">
+                    <div class="prompt-box">
+                        <label for="user-prompt">Напишите ваш вопрос для получения ответа от Gemini:</label>
+                        <textarea id="user-prompt" name="prompt" placeholder="Вставьте текст здесь" required></textarea>
+                    </div>
+                    <div class="prompt-box">
+                        <label for="preset-prompt">Готовый запрос для запуска:</label>
+                        <input 
+                            id="preset-prompt"
+                            name="new-prompt" 
+                            placeholder="Введите текст здесь" 
+                            type="text"
+                            value="Ты AI Агент по помощи в подготовке студентов зарубеж. Ты умеешь высчитывать GPA в формате 4.0 по предоставленным данным от пользователя. Также при вопросе о подборе университетов ты даешь общие рекомендации на основании ситуации пользователя. Также в конце при возникновении дополнительных вопросов советуешь обратиться к Таиру Калдыбаеву."
+                            required
+                        >
+                    </div>
+                    <button type="submit" class="button">Отправить запрос</button>
+                </form>
+                <div class="output-container">
+                    <p class="output" id="output1">(Результаты)</p>
+                    <button class="copy-button" onclick="copyToClipboard('output1')">Скопировать</button>
+                </div>
+            </section>
+            
+      </main>
+
+    <footer class="footer">
+        <p>Создано командой Quantum Compass & Tair Kaldybayev</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        function copyToClipboard(outputId) {
+          const outputText = document.getElementById(outputId).textContent;
+          navigator.clipboard.writeText(outputText).then(() => {
+            alert('Текст скопирован в буфер обмена');
+          }).catch(err => {
+            console.error('Ошибка копирования', err);
+          });
+        }
+    </script>
+</body>
+</html>

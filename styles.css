@@ -1,0 +1,633 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Хедер */
+.header {
+    background: linear-gradient(135deg, #26a69a, #00897b);
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.3rem;
+}
+
+/* Основной контейнер */
+.container {
+    flex: 1;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Секция Калькулятора */
+.calculator-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.calculator-section:hover {
+    transform: translateY(-5px);
+}
+
+.calculator-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #00897b;
+}
+
+.system-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.system-selector label {
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.subjects-container {
+    margin-top: 20px;
+}
+
+.row.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 2px solid #00897b;
+    font-weight: 600;
+    color: #26a69a;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s;
+}
+
+.row:hover {
+    background: #f1f1f1;
+}
+
+.row input {
+    width: 22%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.row input:focus {
+    border-color: #26a69a;
+    outline: none;
+}
+
+.row .delete-button {
+    background: #e57373;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.row .delete-button:hover {
+    background: #ef5350;
+}
+
+/* Группы кнопок */
+.buttons-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.add-button {
+    background: #26a69a;
+    color: #fff;
+}
+
+.add-button:hover {
+    background: #2bbbad;
+    transform: translateY(-2px);
+}
+
+.template-button {
+    background: #42a5f5;
+    color: #fff;
+}
+
+.template-button:hover {
+    background: #64b5f6;
+    transform: translateY(-2px);
+}
+
+.save-button {
+    background: #ffa726;
+    color: #fff;
+}
+
+.save-button:hover {
+    background: #ffb74d;
+    transform: translateY(-2px);
+}
+
+.load-button {
+    background: #ab47bc;
+    color: #fff;
+}
+
+.load-button:hover {
+    background: #ba68c8;
+    transform: translateY(-2px);
+}
+
+.calculate-button {
+    background: #ef5350;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+
+.calculate-button:hover {
+    background: #e53935;
+    transform: translateY(-3px);
+}
+
+.export-button {
+    background: #29b6f6;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.export-button:hover {
+    background: #0288d1;
+    transform: translateY(-3px);
+}
+
+/* Индикатор GPA */
+.gpa-indicator {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-chart {
+    width: 200px;
+    height: 200px;
+}
+
+.circle-chart .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circle-chart .circle {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease, stroke 1s ease;
+}
+
+.circle-chart .percentage {
+    fill: #333;
+    font-size: 0.5em;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-weight: 600;
+}
+
+/* AI Assistant Prompt Section */
+.prompt-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.prompt-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #00897b;
+    text-align: center;
+}
+
+.prompt-box {
+    margin: 24px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prompt-box label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.prompt-box textarea,
+.prompt-box input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+}
+
+.prompt-box textarea:focus,
+.prompt-box input:focus {
+    border-color: #26a69a;
+    outline: none;
+}
+
+.output-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.output {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 50px;
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+}
+
+.copy-button {
+    padding: 10px 20px;
+    background: #26a69a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.copy-button:hover {
+    background: #2bbbad;
+    transform: translateY(-2px);
+}
+
+/* Секция Чата внутри AI Assistant */
+.prompt-section .message {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.prompt-section .message.user .text {
+    background: #00897b;
+    color: #fff;
+    align-self: flex-end;
+    border-radius: 15px 15px 0 15px;
+}
+
+.prompt-section .message.ai .text {
+    background: #e0f2f1;
+    color: #333;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0;
+}
+
+.prompt-section .text {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+    transition: background 0.3s;
+}
+
+/* Группы кнопок и прочее */
+.buttons-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.add-button {
+    background: #26a69a;
+    color: #fff;
+}
+
+.add-button:hover {
+    background: #2bbbad;
+    transform: translateY(-2px);
+}
+
+.template-button {
+    background: #42a5f5;
+    color: #fff;
+}
+
+.template-button:hover {
+    background: #64b5f6;
+    transform: translateY(-2px);
+}
+
+.save-button {
+    background: #ffa726;
+    color: #fff;
+}
+
+.save-button:hover {
+    background: #ffb74d;
+    transform: translateY(-2px);
+}
+
+.load-button {
+    background: #ab47bc;
+    color: #fff;
+}
+
+.load-button:hover {
+    background: #ba68c8;
+    transform: translateY(-2px);
+}
+
+.calculate-button {
+    background: #ef5350;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 30px;
+}
+
+.calculate-button:hover {
+    background: #e53935;
+    transform: translateY(-3px);
+}
+
+.export-button {
+    background: #29b6f6;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.export-button:hover {
+    background: #0288d1;
+    transform: translateY(-3px);
+}
+
+/* Индикатор GPA */
+.gpa-indicator {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-chart {
+    width: 200px;
+    height: 200px;
+}
+
+.circle-chart .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+}
+
+.circle-chart .circle {
+    fill: none;
+    stroke-width: 3.8;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease, stroke 1s ease;
+}
+
+.circle-chart .percentage {
+    fill: #333;
+    font-size: 0.5em;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    font-weight: 600;
+}
+
+/* AI Assistant Prompt Section */
+.prompt-section {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.prompt-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #00897b;
+    text-align: center;
+}
+
+.prompt-box {
+    margin: 24px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prompt-box label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.prompt-box textarea,
+.prompt-box input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+}
+
+.prompt-box textarea:focus,
+.prompt-box input:focus {
+    border-color: #26a69a;
+    outline: none;
+}
+
+.output-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.output {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+    min-height: 50px;
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+}
+
+.copy-button {
+    padding: 10px 20px;
+    background: #26a69a;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.copy-button:hover {
+    background: #2bbbad;
+    transform: translateY(-2px);
+}
+
+/* Секция Чата внутри AI Assistant */
+.prompt-section .message {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.prompt-section .message.user .text {
+    background: #00897b;
+    color: #fff;
+    align-self: flex-end;
+    border-radius: 15px 15px 0 15px;
+}
+
+.prompt-section .message.ai .text {
+    background: #e0f2f1;
+    color: #333;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0;
+}
+
+.prompt-section .text {
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+    transition: background 0.3s;
+}
+
+/* Футер */
+.footer {
+    background: #004d40;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .row input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .buttons-group {
+        flex-direction: column;
+    }
+
+    .resource-card {
+        width: 100%;
+    }
+
+    .prompt-box {
+        flex-direction: column;
+    }
+}
