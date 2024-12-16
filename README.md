@@ -1,8 +1,6 @@
-Here's a clean, structured, and visually appealing **README.md** for your project:
-
----
-
 # 🎓 **Minimalistic GPA Calculator with AI**  
+## Enjoy calculating your GPA with ease! ✨  
+
 A modern, responsive, and user-friendly **GPA Calculator** built with HTML, CSS, and JavaScript. This project includes a fully functional GPA calculation system, template management, PDF export, and an integrated AI Assistant for helping students optimize their academic plans.
 
 ---
@@ -152,5 +150,3 @@ This project is licensed under the **MIT License**.
 **© 2024 @tairqaldy | All rights reserved.**  
 
 ---  
-
-Enjoy calculating your GPA with ease! 🎓✨  
