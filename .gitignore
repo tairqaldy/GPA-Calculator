@@ -27,3 +27,10 @@ dist-ssr
 .env*
 node_modules
 package-lock.json
+
+# etc
+.gitlab-ci.yml
+.firebaserc
+dev.nix
+firebase.json
+package.json
