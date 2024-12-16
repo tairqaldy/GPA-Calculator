@@ -3,12 +3,6 @@
 
 A modern, responsive, and user-friendly **GPA Calculator** built with HTML, CSS, and JavaScript. This project includes a fully functional GPA calculation system, template management, PDF export, and an integrated AI Assistant for helping students optimize their academic plans.
 
-![image](https://github.com/user-attachments/assets/99c217fa-c17e-420f-ae59-c3b7ab82b02c)
----
-![image](https://github.com/user-attachments/assets/c0d0409b-6c8c-45e2-8723-2d406a173188)
-
-
-
 ---
 
 ## 🚀 **Overview**  
@@ -149,6 +143,11 @@ For questions, feedback, or access to the AI Assistant's extended functionality:
 
 ---
 
+![image](https://github.com/user-attachments/assets/99c217fa-c17e-420f-ae59-c3b7ab82b02c)
+---
+![image](https://github.com/user-attachments/assets/c0d0409b-6c8c-45e2-8723-2d406a173188)
+
+---
 ## 🛡️ **License**  
 
 This project is licensed under the **MIT License**.  
